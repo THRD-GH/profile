@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dan Thrippleton</title>
+
+<meta name="description" content="CV of Daniel Thrippleton, Principal Cloud & AI Architect, Zürich (English / Deutsch)">
+<meta name="robots" content="noindex, nofollow">
+<meta name="google" content="notranslate">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap">
+<style>
+/* Swiss CV grid: 176px left gutter carries date ranges; content right. Archivo grotesk;
+   petrol accent on structure (tinted section bars, circled fold controls). Bilingual:
+   .en/.de blocks toggled via html[data-lang]. */
+:root {
+  --bg: #f6f8f9;
+  --bar: #e2ebee;
+  --ink: #15191c;
+  --grey: #5d676d;
+  --faint: #d9e0e3;
+  --accent: #1f4e5f;
+  --underline: rgba(31, 78, 95, 0.45);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #14181b; --bar: #1e2a30; --ink: #e9ebec; --grey: #98a2a8; --faint: #2b3237;
+    --accent: #9ac2cf; --underline: rgba(154, 194, 207, 0.5);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #14181b; --bar: #1e2a30; --ink: #e9ebec; --grey: #98a2a8; --faint: #2b3237;
+  --accent: #9ac2cf; --underline: rgba(154, 194, 207, 0.5);
+  color-scheme: dark;
+}
+html[data-lang="de"] .en { display: none !important; }
+html:not([data-lang="de"]) .de { display: none !important; }
+html, body { overflow-x: clip; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Archivo", "Helvetica Neue", "Segoe UI", Arial, sans-serif;
+  font-size: calc(15px * var(--fs, 1));
+  line-height: 1.5;
+  margin: 0;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.page { max-width: 860px; margin: 0 auto; padding-block: 44px 56px; }
+a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--underline);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2.5px;
+}
+a:hover, a:focus-visible { color: var(--accent); text-decoration-color: var(--accent); }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.contactblock a { text-decoration: none; color: var(--accent); }
+.contactblock a:hover { text-decoration: underline; }
+
+/* Display controls: floating pills (language top right, text size bottom right) */
+.langswitch {
+  position: fixed;
+  top: calc(16px + env(safe-area-inset-top, 0px));
+  right: calc(16px + env(safe-area-inset-right, 0px));
+  display: inline-flex; gap: 2px; align-items: center;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--accent) 16%, transparent);
+  background: color-mix(in srgb, var(--accent) 5%, transparent);
+  backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+  padding: 4px 6px; z-index: 20;
+}
+.langswitch button {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: none; border: 1.5px solid transparent; border-radius: 999px;
+  cursor: pointer; padding: 2px 5px; opacity: 0.45;
+}
+.langswitch button svg { display: block; width: 21px; height: 14px; border-radius: 2px; }
+.langswitch button.active { border-color: var(--accent); opacity: 1; }
+.langswitch button:hover { opacity: 1; }
+.langswitch button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.textsize {
+  position: fixed;
+  right: calc(16px + env(safe-area-inset-right, 0px));
+  bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  display: inline-flex; border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--accent) 16%, transparent);
+  overflow: hidden;
+  background: color-mix(in srgb, var(--accent) 5%, transparent);
+  backdrop-filter: blur(5px); -webkit-backdrop-filter: blur(5px);
+  z-index: 20;
+}
+.textsize button {
+  font: inherit; font-size: 13px; font-weight: 600; line-height: 1;
+  background: none; border: 0; color: var(--accent); cursor: pointer; padding: 8px 13px;
+}
+.textsize button + button { border-left: 1px solid color-mix(in srgb, var(--accent) 20%, transparent); }
+.textsize button:hover:not(:disabled) { color: var(--accent); }
+.textsize button:disabled { opacity: 0.35; cursor: default; }
+.textsize button:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+/* Header */
+.masthead { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 12px 24px; }
+.masthead h1 { font-size: calc(44px * var(--fs, 1)); font-weight: 700; letter-spacing: -0.015em; line-height: 1.02; margin: 0; }
+.masthead .role { font-size: calc(17px * var(--fs, 1)); color: var(--accent); font-weight: 500; margin: 6px 0 0; }
+.masthead .contactblock { text-align: right; font-size: calc(13.5px * var(--fs, 1)); line-height: 1.7; color: var(--grey); }
+.masthead .contactblock a { display: block; }
+.standfirst { margin: 18px 0 0; font-size: calc(14px * var(--fs, 1)); color: var(--ink); }
+.standfirst strong { font-weight: 600; white-space: nowrap; }
+.standfirst .div { color: var(--grey); padding: 0 3px; }
+.headrule { border: 0; border-top: 2px solid var(--accent); margin: 20px 0 0; }
+
+/* Sections (details), open by default; tinted title bars */
+.sec { border-bottom: 0; }
+.sec > summary {
+  display: flex; align-items: center; gap: 8px;
+  cursor: pointer; list-style: none;
+  background: var(--bar); border-radius: 3px;
+  padding: 8px 10px; margin: 12px -10px 10px;
+}
+.sec > summary::-webkit-details-marker { display: none; }
+.sec > summary h2 {
+  font-size: calc(12.5px * var(--fs, 1)); font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.02em; color: var(--accent); margin: 0; display: inline;
+}
+.sec > summary::before {
+  content: "\2212";
+  display: inline-flex; align-items: center; justify-content: center;
+  flex: none; width: 18px; height: 18px; border: 1.5px solid var(--accent);
+  border-radius: 50%; font-size: 13px; line-height: 1; color: var(--accent);
+}
+.sec:not([open]) > summary::before { content: "+"; }
+.sec > summary:hover::before, .sec > summary:focus-visible::before { background: var(--accent); color: var(--bg); }
+.sec > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.secbody { display: grid; grid-template-columns: 176px 1fr; gap: 0 28px; padding-bottom: 14px; }
+.secbody > .body { grid-column: 2; min-width: 0; }
+.secbody > .entry, .secbody > .rowline { grid-column: 1 / -1; }
+.body p { margin: 0 0 10px; }
+
+/* Roles (details), collapsed by default */
+.entry > summary {
+  display: grid; grid-template-columns: 176px 1fr; gap: 0 28px;
+  align-items: baseline; cursor: pointer; list-style: none; padding: 5px 0;
+}
+.entry > summary::-webkit-details-marker { display: none; }
+.entry > summary:hover h3, .entry > summary:focus-visible h3 { color: var(--accent); }
+.entry > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.entry .when { font-size: calc(13px * var(--fs, 1)); color: var(--grey); font-variant-numeric: tabular-nums; padding-top: 2px; }
+.entry .when::before {
+  content: "+";
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 18px; height: 18px; border: 1.5px solid var(--accent); border-radius: 50%;
+  margin-right: 8px; font-size: 13px; line-height: 1; color: var(--accent);
+  vertical-align: -4px;
+}
+.entry[open] .when::before { content: "\2212"; }
+.entry > summary:hover .when::before, .entry > summary:focus-visible .when::before {
+  background: var(--accent); color: var(--bg);
+}
+/* keep the date column aligned with the circled rows */
+.rowline .when { padding-left: 26px; }
+.entry .what { min-width: 0; }
+.entry h3 { font-size: calc(15px * var(--fs, 1)); font-weight: 600; margin: 0; display: inline; }
+.entry .org { color: var(--grey); font-weight: 400; }
+.bullets { margin: 2px 0 10px calc(176px + 28px); padding-left: 18px; }
+.bullets li { font-size: calc(14px * var(--fs, 1)); margin-bottom: 3px; }
+
+/* Plain rows (early career, education) */
+.rowline { display: grid; grid-template-columns: 176px 1fr; gap: 0 28px; font-size: calc(14px * var(--fs, 1)); margin-bottom: 3px; }
+.rowline .when { font-size: calc(13px * var(--fs, 1)); color: var(--grey); font-variant-numeric: tabular-nums; padding-top: 1px; }
+.rowline .what { min-width: 0; }
+
+/* Key/value lists */
+.kvline { margin-bottom: 6px; font-size: calc(14.5px * var(--fs, 1)); }
+.kvline .k { font-weight: 600; }
+
+/* Certification groups: provider as subheading, badge list beneath */
+.certgroup { margin-bottom: 14px; }
+.certgroup:last-child { margin-bottom: 4px; }
+.certhead { margin: 0 0 3px; font-size: calc(14.5px * var(--fs, 1)); font-weight: 600; }
+.certhead a { font-weight: 600; }
+.certlist { margin: 0; font-size: calc(14px * var(--fs, 1)); line-height: 1.7; }
+
+@media (max-width: 620px) {
+  .masthead h1 { font-size: calc(32px * var(--fs, 1)); }
+  .masthead .contactblock { text-align: left; }
+  .masthead .contactblock a { display: inline-block; margin-right: 14px; }
+  .masthead .contactblock .status { display: block; white-space: nowrap; }
+  .secbody { grid-template-columns: 1fr; gap: 0; }
+  .secbody > .body { grid-column: 1; }
+  .entry > summary { grid-template-columns: 1fr; }
+  .entry .when { grid-column: 1; grid-row: 1; padding-top: 0; }
+  .entry .what { grid-column: 1; grid-row: 2; padding-left: 26px; }
+  .bullets { margin-left: 26px; }
+  .rowline .when { padding-left: 0; }
+  .entry { margin-bottom: 8px; }
+  .rowline { grid-template-columns: 1fr; margin-bottom: 8px; }
+}
+
+footer { font-size: calc(12.5px * var(--fs, 1)); color: var(--grey); margin-top: 26px; }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header>
+    <div class="masthead">
+      <div>
+        <h1>Daniel Thrippleton</h1>
+        <p class="role">Principal Cloud &amp; AI Architect, Zürich</p>
+      </div>
+      <div class="contactblock">
+        <a href="https://www.linkedin.com/in/dan-thrippleton">linkedin.com/in/dan-thrippleton</a>
+        <span class="status"><span class="en">Permit C · available immediately</span><span class="de">C-Bewilligung · sofort verfügbar</span></span>
+      </div>
+    </div>
+    <p class="standfirst"><strong>Cloud &amp; Solution Architect</strong> <span class="div">/</span> <strong>DevOps Engineer</strong> <span class="div">/</span> <strong><span class="en">ICT Project &amp; Delivery Manager</span><span class="de">ICT Projekt- &amp; Delivery-Manager</span></strong></p>
+    <hr class="headrule">
+  </header>
+
+  <details class="sec" open>
+    <summary><h2><span class="en">Profile</span><span class="de">Profil</span></h2></summary>
+    <div class="secbody">
+      <div class="body">
+        <p class="en">Principal Cloud Architect with 25+ years of experience spanning enterprise infrastructure, DevOps transformation, multi-cloud adoption and AI platforms.</p>
+        <p class="en">Certified GCP Machine Learning &amp; Data Engineer and Azure Solutions Architect Expert, with hands-on experience architecting AI platforms from data ingestion through to GenAI application deployment.</p>
+        <p class="en">Deep background in regulated environments (banking, life sciences GxP and the public sector) and a proven builder and leader of distributed technical teams. Bridges C-level strategy and complex technical execution.</p>
+        <p class="de">Principal Cloud Architect mit über 25 Jahren Erfahrung in Enterprise-Infrastruktur, DevOps-Transformation, Multi-Cloud-Adoption und AI-Plattformen.</p>
+        <p class="de">Zertifizierter GCP Machine Learning &amp; Data Engineer und Azure Solutions Architect Expert, mit praktischer Erfahrung in der Architektur von AI-Plattformen von der Datenaufnahme bis zum Deployment von GenAI-Anwendungen.</p>
+        <p class="de">Fundierter Hintergrund in regulierten Umgebungen (Banken, Life Sciences GxP und öffentlicher Sektor); erfahren im Aufbau und in der Führung verteilter technischer Teams. Verbindet C-Level-Strategie mit komplexer technischer Umsetzung.</p>
+      </div>
+    </div>
+  </details>
+
+  <details class="sec" open>
+    <summary><h2><span class="en">Competencies</span><span class="de">Kompetenzen</span></h2></summary>
+    <div class="secbody">
+      <div class="body">
+        <p class="kvline en"><span class="k">Cloud platforms:</span> Google Cloud, Microsoft Azure, AWS; Kubernetes; landing zones; cloud governance</p>
+        <p class="kvline de"><span class="k">Cloud-Plattformen:</span> Google Cloud, Microsoft Azure, AWS; Kubernetes; Landing Zones; Cloud Governance</p>
+        <p class="kvline en"><span class="k">AI / Data:</span> GenAI application architecture, Responsible AI, MLOps, AI platform design</p>
+        <p class="kvline de"><span class="k">AI / Daten:</span> GenAI-Anwendungsarchitektur, Responsible AI, MLOps, AI-Plattformdesign</p>
+        <p class="kvline en"><span class="k">Delivery:</span> technical architecture, solution design, DevOps/CI-CD, process automation, observability</p>
+        <p class="kvline de"><span class="k">Delivery:</span> technische Architektur, Lösungsdesign, DevOps/CI-CD, Prozessautomatisierung, Observability</p>
+        <p class="kvline en"><span class="k">Leadership:</span> team leadership, coaching and mentoring, stakeholder and project management</p>
+        <p class="kvline de"><span class="k">Führung:</span> Teamführung, Coaching und Mentoring, Stakeholder- und Projektmanagement</p>
+        <p class="kvline en"><span class="k">Industries:</span> banking, government, retail, consulting, life sciences, manufacturing, travel</p>
+        <p class="kvline de"><span class="k">Branchen:</span> Banken, öffentliche Verwaltung, Detailhandel, Consulting, Life Sciences, Industrie, Reisebranche</p>
+      </div>
+    </div>
+  </details>
+
+  <details class="sec" open>
+    <summary><h2><span class="en">Experience</span><span class="de">Berufserfahrung</span></h2></summary>
+    <div class="secbody">
+
+      <details class="entry">
+        <summary>
+          <span class="when"><span class="en">May 2026 – present</span><span class="de">Mai 2026 – heute</span></span>
+          <span class="what"><h3><span class="en">Co-founder</span><span class="de">Mitgründer</span> <span class="org">· DBWarp, Zürich</span></h3></span>
+        </summary>
+        <ul class="bullets">
+          <li class="en">Swiss database venture (patent-pending): building multi-cloud infrastructure hands-on across Azure, Google Cloud and AWS.</li>
+          <li class="de">Schweizer Datenbank-Venture (Patent angemeldet): baut die Multi-Cloud-Infrastruktur über Azure, Google Cloud und AWS hands-on auf.</li>
+        </ul>
+      </details>
+
+      <details class="entry">
+        <summary>
+          <span class="when"><span class="en">Jul 2025 – Dec 2025</span><span class="de">Juli 2025 – Dez. 2025</span></span>
+          <span class="what"><h3><span class="en">Internal Projects, Enablement &amp; Cloud/AI Community</span><span class="de">Interne Projekte, Enablement &amp; Cloud/AI-Community</span> <span class="org">· Cognizant, Zürich</span></h3></span>
+        </summary>
+        <ul class="bullets">
+          <li class="en">Delivered internal projects supporting the sales pipeline across cloud and AI offerings.</li>
+          <li class="de">Interne Projekte zur Unterstützung der Sales-Pipeline über das Cloud- und AI-Portfolio geliefert.</li>
+          <li class="en">Mentored and trained internal teams; active contributor to the internal cloud/AI community.</li>
+          <li class="de">Interne Teams geschult und begleitet; aktiver Beitrag zur internen Cloud/AI-Community.</li>
+        </ul>
+      </details>
+
+      <details class="entry">
+        <summary>
+          <span class="when"><span class="en">Jun 2022 – Jun 2025</span><span class="de">Juni 2022 – Juni 2025</span></span>
+          <span class="what"><h3><span class="en">EMEA SME Lead, Google account</span><span class="de">EMEA SME Lead, Google-Account</span> <span class="org">· Cognizant, Zürich</span></h3></span>
+        </summary>
+        <ul class="bullets">
+          <li class="en">Led a team of 8 EMEA specialists within a global team of 24 AI, Cloud and Proposal Specialists supporting around 150 analysts, delivering 1,000+ proposals and 3,000+ pitch responses per year across the full Google Cloud and AI portfolio.</li>
+          <li class="de">Führung eines Teams von 8 EMEA-Spezialisten innerhalb eines globalen Teams von 24 AI-, Cloud- und Proposal-Spezialisten zur Unterstützung von rund 150 Analysten; über 1'000 Angebote und 3'000 Pitch-Antworten pro Jahr über das gesamte Google-Cloud- und AI-Portfolio.</li>
+          <li class="en">Architected GenAI tooling into core proposal workflows, enabling the service to scale.</li>
+          <li class="de">GenAI-Tooling in die zentralen Angebotsprozesse integriert und damit die Skalierung des Service ermöglicht.</li>
+          <li class="en">Designed and governed client-facing GenAI PoCs, establishing reusable cloud-agnostic patterns aligned with Responsible AI principles.</li>
+          <li class="de">Kundenseitige GenAI-PoCs konzipiert und verantwortet; wiederverwendbare, cloud-agnostische Muster nach Responsible-AI-Prinzipien etabliert.</li>
+          <li class="en">Mentored team members on emerging technology; drove automation and process improvement.</li>
+          <li class="de">Teammitglieder zu neuen Technologien begleitet; Automatisierung und Prozessverbesserung vorangetrieben.</li>
+        </ul>
+      </details>
+
+      <details class="entry">
+        <summary>
+          <span class="when"><span class="en">Sep 2020 – Jun 2022</span><span class="de">Sept. 2020 – Juni 2022</span></span>
+          <span class="what"><h3><span class="en">EMEA RFX Specialist, Google account</span><span class="de">EMEA RFX Specialist, Google-Account</span> <span class="org">· Cognizant, Zürich</span></h3></span>
+        </summary>
+        <ul class="bullets">
+          <li class="en">Owned the end-to-end RFx lifecycle, orchestrating cross-functional teams to on-time submission.</li>
+          <li class="de">Verantwortung für den End-to-End-RFx-Lifecycle; Koordination funktionsübergreifender Teams bis zur termingerechten Abgabe.</li>
+          <li class="en">Lead technical architect for proposals: consulted to internal teams and trained pitch contributors, raising the technical quality of responses.</li>
+          <li class="de">Technischer Lead-Architekt für Angebote: interne Teams beraten und Pitch-Beitragende geschult; technische Qualität der Antworten gesteigert.</li>
+          <li class="en">Built a centralised library of standardised RFx content, cutting response times and improving win rates.</li>
+          <li class="de">Zentrale Bibliothek standardisierter RFx-Inhalte aufgebaut; Antwortzeiten verkürzt und Gewinnraten verbessert.</li>
+        </ul>
+      </details>
+
+      <details class="entry">
+        <summary>
+          <span class="when"><span class="en">Jul 2020 – Sep 2020</span><span class="de">Juli 2020 – Sept. 2020</span></span>
+          <span class="what"><h3><span class="en">Senior Manager Delivery</span><span class="de">Senior Manager Delivery (intern)</span> <span class="org">· Cognizant, Zürich</span></h3></span>
+        </summary>
+        <ul class="bullets">
+          <li class="en">Supported and mentored the internal Google certification programme.</li>
+          <li class="de">Das interne Google-Zertifizierungsprogramm unterstützt und begleitet.</li>
+        </ul>
+      </details>
+
+      <details class="entry">
+        <summary>
+          <span class="when"><span class="en">Jan 2020 – Jun 2020</span><span class="de">Jan. 2020 – Juni 2020</span></span>
+          <span class="what"><h3><span class="en">Cloud Architect &amp; DevOps Coach (parallel 50% roles)</span><span class="de">Cloud Architect &amp; DevOps Coach (parallel, je 50%)</span> <span class="org">· Credit Suisse, via Cognizant</span></h3></span>
+        </summary>
+        <ul class="bullets">
+          <li class="en">Guided early cloud adoption in the bank's architecture group: AWS/Azure/GCP evaluation, Azure and GCP landing zones, and security, compliance and governance scoping for regulated workloads.</li>
+          <li class="de">Frühe Cloud-Adoption in der Architekturgruppe der Bank begleitet: Evaluation von AWS/Azure/GCP, Azure- und GCP-Landing-Zones sowie Scoping von Sicherheit, Compliance und Governance für regulierte Workloads.</li>
+          <li class="en">Coached teams within the AURORA transformation programme; supported review tooling.</li>
+          <li class="de">Teams im Transformationsprogramm AURORA gecoacht; Review-Tooling unterstützt.</li>
+        </ul>
+      </details>
+
+      <details class="entry">
+        <summary>
+          <span class="when"><span class="en">Jan 2017 – Dec 2019</span><span class="de">Jan. 2017 – Dez. 2019</span></span>
+          <span class="what"><h3>DevOps Consultant <span class="org">· Credit Suisse, via Cognizant</span></h3></span>
+        </summary>
+        <ul class="bullets">
+          <li class="en">Migrated internal teams to the strategic DevOps platform as an internal consultant; defined core DevOps metrics with Tableau reporting to management.</li>
+          <li class="de">Interne Teams als Berater auf die strategische DevOps-Plattform migriert; zentrale DevOps-Metriken definiert, mit Tableau-Reporting an das Management.</li>
+          <li class="en">Built CI/CD templates (Jenkins, TeamCity, Atlassian toolchain), custom automations and automated monitoring enablement (AppDynamics).</li>
+          <li class="de">CI/CD-Templates (Jenkins, TeamCity, Atlassian-Toolchain), eigene Automatisierungen und automatisiertes Monitoring-Enablement (AppDynamics) aufgebaut.</li>
+        </ul>
+      </details>
+
+      <details class="entry">
+        <summary>
+          <span class="when"><span class="en">Jan 2016 – Dec 2017</span><span class="de">Jan. 2016 – Dez. 2017</span></span>
+          <span class="what"><h3>Environment Management Specialist <span class="org">· Credit Suisse, via Cognizant</span></h3></span>
+        </summary>
+        <ul class="bullets">
+          <li class="en">Provisioned infrastructure and CI/CD pipelines for e-banking platforms; integrated release management into bank policy; implemented observability with Grafana, AppDynamics and Splunk.</li>
+          <li class="de">Infrastruktur und CI/CD-Pipelines für E-Banking-Plattformen bereitgestellt; Release-Management in die Bankrichtlinien integriert; Observability mit Grafana, AppDynamics und Splunk umgesetzt.</li>
+        </ul>
+      </details>
+
+      <details class="entry">
+        <summary>
+          <span class="when"><span class="en">Aug 2014 – Jan 2016</span><span class="de">Aug. 2014 – Jan. 2016</span></span>
+          <span class="what"><h3><span class="en">Batch Engineering / Service Transformation</span><span class="de">Batch Engineering / Service-Transformation</span> <span class="org">· Credit Suisse, via Cognizant</span></h3></span>
+        </summary>
+        <ul class="bullets">
+          <li class="en">Transformed the global Batch Hosting service to a 24x7 offshore model (knowledge transfer, training, process standardisation and Control-M implementation) in full compliance with Swiss banking law.</li>
+          <li class="de">Den globalen Batch-Hosting-Service in ein 24x7-Offshore-Modell überführt (Wissenstransfer, Schulung, Prozessstandardisierung und Control-M-Einführung), in voller Übereinstimmung mit dem Schweizer Bankenrecht.</li>
+        </ul>
+      </details>
+
+      <details class="entry">
+        <summary>
+          <span class="when"><span class="en">Mar 2014 – Aug 2014</span><span class="de">März 2014 – Aug. 2014</span></span>
+          <span class="what"><h3>ESM Architect &amp; Infrastructure Lead <span class="org">· 7 3 Solutions Ltd (EDF, RWE Npower, M&amp;S)</span></h3></span>
+        </summary>
+        <ul class="bullets">
+          <li class="en">Architected centralised monitoring and systems-management platforms for two UK energy utilities, with security-policy-compliant designs and legacy migration paths.</li>
+          <li class="de">Zentralisierte Monitoring- und Systems-Management-Plattformen für zwei britische Energieversorger entworfen, mit sicherheitskonformen Designs und Migrationspfaden für Legacy-Systeme.</li>
+          <li class="en">Led infrastructure across five technical towers on a major retail account (via TCS).</li>
+          <li class="de">Infrastrukturverantwortung über fünf technische Towers auf einem grossen Retail-Account (via TCS).</li>
+        </ul>
+      </details>
+
+      <details class="entry">
+        <summary>
+          <span class="when"><span class="en">Dec 2012 – Mar 2014</span><span class="de">Dez. 2012 – März 2014</span></span>
+          <span class="what"><h3><span class="en">System Management Lead, M&amp;S account</span><span class="de">System Management Lead, M&amp;S-Account</span> <span class="org">· Cognizant, UK</span></h3></span>
+        </summary>
+        <ul class="bullets">
+          <li class="en">Led systems management across onshore/offshore teams and multiple hosting vendors; produced the technical design for the account rebid.</li>
+          <li class="de">Systems Management über Onshore-/Offshore-Teams und mehrere Hosting-Anbieter geführt; technisches Design für den Account-Rebid erstellt.</li>
+          <li class="en">Delivered a major toolset programme (scheduler consolidation, monitoring re-architecture, CMDB/ITSM integration and discovery automation) that cut deployment time from 2 weeks to 1 day.</li>
+          <li class="de">Grosses Toolset-Programm geliefert (Scheduler-Konsolidierung, Monitoring-Neuarchitektur, CMDB/ITSM-Integration und Discovery-Automatisierung); Deployment-Zeit von 2 Wochen auf 1 Tag reduziert.</li>
+        </ul>
+      </details>
+
+      <details class="entry">
+        <summary>
+          <span class="when"><span class="en">Sep 2008 – Dec 2012</span><span class="de">Sept. 2008 – Dez. 2012</span></span>
+          <span class="what"><h3><span class="en">ESM Specialist, technical lead</span><span class="de">ESM Specialist, Technical Lead</span> <span class="org">· 7 3 Solutions Ltd (Accenture, Computacenter)</span></h3></span>
+        </summary>
+        <ul class="bullets">
+          <li class="en">Technical lead for Accenture's global systems-management service: consolidated monitoring for 50+ clients and 100,000+ monitored elements onto a single platform.</li>
+          <li class="de">Technischer Lead für Accentures globalen Systems-Management-Service: Monitoring für über 50 Kunden und 100'000+ überwachte Elemente auf einer Plattform konsolidiert.</li>
+          <li class="en">Delivered client projects across the US, UK and Europe: European Space Agency, US Federal Government (security hardening), UK Rural Payments Agency, AstraZeneca (GxP), Starwood Hotels, British Gas, ITV, Stanford Hospitals, Thomas Cook.</li>
+          <li class="de">Kundenprojekte in den USA, UK und Europa geliefert: European Space Agency, US-Bundesbehörden (Security-Hardening), UK Rural Payments Agency, AstraZeneca (GxP), Starwood Hotels, British Gas, ITV, Stanford Hospitals, Thomas Cook.</li>
+          <li class="en">Built BMC Discovery appliances for Computacenter's productised multi-client platform with automated CMDB and monitoring integration.</li>
+          <li class="de">BMC-Discovery-Appliances für Computacenters produktisierte Multi-Client-Plattform mit automatisierter CMDB- und Monitoring-Integration aufgebaut.</li>
+        </ul>
+      </details>
+
+      <details class="entry">
+        <summary>
+          <span class="when"><span class="en">Mar 2007 – Jul 2008</span><span class="de">März 2007 – Juli 2008</span></span>
+          <span class="what"><h3>ESM Specialist <span class="org"><span class="en">· VELUX, Kolding, Denmark</span><span class="de">· VELUX, Kolding, Dänemark</span></span></h3></span>
+        </summary>
+        <ul class="bullets">
+          <li class="en">Implemented enterprise monitoring for 1,000+ servers and 600 network devices in a high-security environment; technical lead for the CMDB deployment; liaison across English, Danish and Indian teams.</li>
+          <li class="de">Enterprise-Monitoring für über 1'000 Server und 600 Netzwerkgeräte in einer Hochsicherheitsumgebung eingeführt; technischer Lead für das CMDB-Deployment; Schnittstelle zwischen englischen, dänischen und indischen Teams.</li>
+        </ul>
+      </details>
+
+    </div>
+  </details>
+
+  <details class="sec">
+    <summary><h2><span class="en">Early Career</span><span class="de">Frühere Laufbahn</span></h2></summary>
+    <div class="secbody">
+      <div class="rowline"><span class="when"><span class="en">Oct 2006 – Mar 2007</span><span class="de">Okt. 2006 – März 2007</span></span><span class="what"><span class="en">Personal projects and training</span><span class="de">Eigene Projekte und Weiterbildung</span></span></div>
+      <div class="rowline"><span class="when"><span class="en">Aug 2004 – Oct 2006</span><span class="de">Aug. 2004 – Okt. 2006</span></span><span class="what">Monitoring Specialist · Accenture UK (via 7 3 Solutions Ltd)</span></div>
+      <div class="rowline"><span class="when"><span class="en">Jun 2001 – Jul 2004</span><span class="de">Juni 2001 – Juli 2004</span></span><span class="what"><span class="en">Advanced Systems Administrator · EDS UK (HMRC account)</span><span class="de">Advanced Systems Administrator · EDS UK (HMRC-Account)</span></span></div>
+      <div class="rowline"><span class="when"><span class="en">Sep 1999 – Jun 2001</span><span class="de">Sept. 1999 – Juni 2001</span></span><span class="what">Software Engineer / Systems Engineer · EDS UK</span></div>
+      <div class="rowline"><span class="when"><span class="en">Nov 1998 – Sep 1999</span><span class="de">Nov. 1998 – Sept. 1999</span></span><span class="what">Systems Engineer · EDS UK</span></div>
+    </div>
+  </details>
+
+  <details class="sec" open>
+    <summary><h2><span class="en">Education</span><span class="de">Ausbildung</span></h2></summary>
+    <div class="secbody">
+      <div class="rowline"><span class="when">1994 – 1997</span><span class="what"><span class="en">BSc (Hons.) Mathematics · University of Manchester, UK</span><span class="de">BSc (Hons.) Mathematik · University of Manchester, UK</span></span></div>
+    </div>
+  </details>
+
+  <details class="sec" open>
+    <summary><h2><span class="en">Certifications</span><span class="de">Zertifizierungen</span></h2></summary>
+    <div class="secbody">
+      <div class="body">
+        <div class="certgroup"><p class="certhead"><a href="https://www.credly.com/users/dan-thrippleton">Google Cloud</a></p>
+        <p class="certlist"><a href="https://www.credly.com/badges/66e6915c-6d69-4b56-a448-7e2e524ca121">Professional Cloud Architect</a>, <a href="https://www.credly.com/badges/555a8a51-6b21-4da5-b068-fa8476065d60">Machine Learning Engineer</a>, <a href="https://www.credly.com/badges/5e79c6ab-3db6-4811-bffa-0a889e04a014">Data Engineer</a>, <a href="https://www.credly.com/badges/a5ddfa66-e1ac-4abe-8103-d04a3212ba69">Cloud Database Engineer</a>, <a href="https://www.credly.com/badges/688280bf-1868-4d86-8cf7-144d494c8397">Security Engineer</a>, <a href="https://www.credly.com/badges/981d00b5-cf0f-4088-a44b-ea39b393c4e1">Network Engineer</a>, <a href="https://www.credly.com/badges/a0f0c8aa-56d5-4f1b-82cf-54148e4a0ee1">Cloud Developer</a>, <a href="https://www.credly.com/badges/0fbc480a-9fdd-4025-96ca-fedc07edb1e1">DevOps Engineer</a>, <a href="https://www.credly.com/badges/3d466a86-51f1-45e6-8ddf-cdcc8fea432c">Associate Cloud Engineer</a>, <a href="https://www.credly.com/badges/5ef18f72-b1f2-432a-9bee-506f60fc87be">Data Practitioner</a>, <a href="https://www.credly.com/badges/4c046982-80fa-4771-9cdd-c2c8cf174bd5">Cloud Digital Leader</a>, <a href="https://www.credly.com/badges/3c7b630c-e915-49e7-b637-9f7b0c071d39">Generative AI Leader</a></p></div>
+        <div class="certgroup"><p class="certhead"><a href="https://learn.microsoft.com/en-gb/users/dan-7556/transcript/dg8kjuqxojkyep8">Microsoft Azure</a></p>
+        <p class="certlist"><a href="https://learn.microsoft.com/api/credentials/share/en-gb/Dan-7556/1A8EE865D6L9">AZ-400 DevOps Engineer Expert</a>; <a href="https://learn.microsoft.com/api/credentials/share/en-gb/Dan-7556/6U93A8AA6E55">AZ-305 Solutions Architect Expert</a>; <a href="https://learn.microsoft.com/api/credentials/share/en-gb/Dan-7556/2E4A63543DRC">AZ-104 Administrator Associate</a>; DP-900 Data Fundamentals</p></div>
+        <div class="certgroup"><p class="certhead"><a href="https://chromeoscertified.accredible.com/1650334e-1757-4550-a0a5-9b33a5619ebb">Google</a></p>
+        <p class="certlist"><a href="https://www.credly.com/badges/b2b795f7-c074-42f5-932a-85e66ae92ec9">Associate Workspace Administrator</a>, <a href="https://chromeoscertified.accredible.com/1650334e-1757-4550-a0a5-9b33a5619ebb">Professional ChromeOS Administrator</a>, GenAI L400</p></div>
+        <div class="certgroup"><p class="certhead"><span class="en">Other</span><span class="de">Weitere</span></p>
+        <p class="certlist">ITIL Foundation</p></div>
+      </div>
+    </div>
+  </details>
+
+  <details class="sec" open>
+    <summary><h2><span class="en">Languages</span><span class="de">Sprachen</span></h2></summary>
+    <div class="secbody">
+      <div class="body">
+        <p class="kvline en"><span class="k">English:</span> native speaker</p>
+        <p class="kvline en"><span class="k">German:</span> B1 certified, working at B2</p>
+        <p class="kvline de"><span class="k">Englisch:</span> Muttersprache</p>
+        <p class="kvline de"><span class="k">Deutsch:</span> B1 zertifiziert, angewendet auf Niveau B2</p>
+      </div>
+    </div>
+  </details>
+
+  <details class="sec" open>
+    <summary><h2><span class="en">Community</span><span class="de">Engagement</span></h2></summary>
+    <div class="secbody">
+      <div class="body">
+        <p class="en">Active volunteer supporting large community events at <a href="https://gz-zh.ch/gz-heuried/">GZ Heuried</a>, <a href="https://gz-zh.ch/gz-wollishofen/">GZ Wollishofen</a>, <a href="https://www.wollishofen-zh.ch/">Quartierverein Wollishofen</a> and the <a href="https://www.kirchewollishofen.ch/">Reformierte Kirche Wollishofen</a>. Longstanding member of the <a href="https://www.wollishoferweihnachtsmarkt.ch/">Wollishofen Weihnachtsmärt</a> team; cycling club committee member.</p>
+        <p class="de">Aktiver Freiwilliger bei grossen Quartieranlässen im <a href="https://gz-zh.ch/gz-heuried/">GZ Heuried</a>, <a href="https://gz-zh.ch/gz-wollishofen/">GZ Wollishofen</a>, beim <a href="https://www.wollishofen-zh.ch/">Quartierverein Wollishofen</a> und bei der <a href="https://www.kirchewollishofen.ch/">Reformierten Kirche Wollishofen</a>. Langjähriges Mitglied im Team des <a href="https://www.wollishoferweihnachtsmarkt.ch/">Wollishofer Weihnachtsmärts</a>; Vorstandsmitglied eines lokalen Velovereins.</p>
+      </div>
+    </div>
+  </details>
+
+  <footer>
+    <span class="en">References and further details available on request · Last updated November 2026</span>
+    <span class="de">Referenzen und weitere Unterlagen auf Anfrage · Stand: November 2026</span>
+  </footer>
+</div>
+
+<div class="langswitch" role="group" aria-label="Language">
+  <button type="button" id="lang-en" data-lang="en" aria-label="English" title="English">
+    <svg viewBox="0 0 60 30" aria-hidden="true"><clipPath id="ukt"><path d="M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z"/></clipPath><rect width="60" height="30" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" clip-path="url(#ukt)" stroke="#C8102E" stroke-width="4"/><path d="M30,0 v30 M0,15 h60" stroke="#fff" stroke-width="10"/><path d="M30,0 v30 M0,15 h60" stroke="#C8102E" stroke-width="6"/></svg>
+  </button>
+  <button type="button" id="lang-de" data-lang="de" aria-label="Deutsch" title="Deutsch">
+    <svg viewBox="0 0 60 30" aria-hidden="true"><rect width="60" height="30" fill="#DA291C"/><rect x="26.5" y="5" width="7" height="20" fill="#fff"/><rect x="20" y="11.5" width="20" height="7" fill="#fff"/></svg>
+  </button>
+</div>
+
+<div class="textsize" role="group" aria-label="Text size">
+  <button type="button" id="text-minus" aria-label="Smaller text">A&#8722;</button>
+  <button type="button" id="text-plus" aria-label="Larger text">A+</button>
+</div>
+
+<script>
+(function () {
+  var html = document.documentElement;
+  var buttons = document.querySelectorAll(".langswitch button");
+  function set(lang) {
+    html.setAttribute("data-lang", lang);
+    html.lang = lang;
+    buttons.forEach(function (b) { b.classList.toggle("active", b.dataset.lang === lang); });
+    try { localStorage.setItem("cv-lang", lang); } catch (e) {}
+  }
+  var lang = null;
+  try { lang = localStorage.getItem("cv-lang"); } catch (e) {}
+  if (lang !== "de" && lang !== "en") {
+    lang = (navigator.language || "").toLowerCase().indexOf("de") === 0 ? "de" : "en";
+  }
+  set(lang);
+  buttons.forEach(function (b) { b.addEventListener("click", function () { set(b.dataset.lang); }); });
+
+  // Text size (DBWarp ui-kit pattern): --fs multiplier, stepped, persisted.
+  var STEPS = [1, 1.1, 1.2, 1.3, 1.4, 1.5];
+  var minus = document.getElementById("text-minus");
+  var plus = document.getElementById("text-plus");
+  function scale() {
+    return Number(getComputedStyle(html).getPropertyValue("--fs")) || 1;
+  }
+  function mark(f) {
+    var now = "now " + Math.round(f * 100) + "%";
+    minus.disabled = f <= STEPS[0];
+    plus.disabled = f >= STEPS[STEPS.length - 1];
+    minus.title = "Smaller text (" + now + ")";
+    plus.title = "Larger text (" + now + ")";
+  }
+  function setSize(f) {
+    if (STEPS.indexOf(f) < 0) f = 1;
+    html.style.setProperty("--fs", String(f));
+    mark(f);
+    try { localStorage.setItem("cv-fs", String(f)); } catch (e) {}
+  }
+  function step(d) {
+    var i = STEPS.indexOf(scale());
+    if (i < 0) i = 0;
+    setSize(STEPS[Math.max(0, Math.min(STEPS.length - 1, i + d))]);
+  }
+  var f = 1;
+  try { f = Number(localStorage.getItem("cv-fs")) || 1; } catch (e) {}
+  setSize(f);
+  minus.addEventListener("click", function () { step(-1); });
+  plus.addEventListener("click", function () { step(1); });
+})();
+</script>
+</body>
+</html>
