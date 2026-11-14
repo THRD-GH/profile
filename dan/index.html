@@ -135,7 +135,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .sec > summary:hover::before, .sec > summary:focus-visible::before { background: var(--accent); color: var(--bg); }
 .sec > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .secbody { display: grid; grid-template-columns: 176px 1fr; gap: 0 28px; padding-bottom: 14px; }
-.secbody > .body { grid-column: 1 / -1; min-width: 0; }
+.secbody > .body { grid-column: 2; min-width: 0; }
 .secbody > .entry, .secbody > .rowline { grid-column: 1 / -1; }
 .body p { margin: 0 0 10px; }
 
@@ -189,6 +189,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
   .masthead .contactblock a { display: inline-block; margin-right: 14px; }
   .masthead .contactblock .status { display: block; white-space: nowrap; }
   .secbody { grid-template-columns: 1fr; gap: 0; }
+  .secbody > .body { grid-column: 1; }
   .entry > summary { grid-template-columns: 1fr; }
   .entry .when { grid-column: 1; grid-row: 1; padding-top: 0; }
   .entry .what { grid-column: 1; grid-row: 2; padding-left: 26px; }
