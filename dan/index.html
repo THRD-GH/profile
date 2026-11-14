@@ -10,7 +10,7 @@
 <meta name="google" content="notranslate">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap">
 <style>
-/* Swiss CV grid: 176px left gutter carries date ranges; content right. Archivo grotesk;
+/* Swiss CV grid: --gutter (176px, scaled by the text-size control) carries date ranges; content right. Archivo grotesk;
    petrol accent on structure (tinted section bars, circled fold controls). Bilingual:
    .en/.de blocks toggled via html[data-lang]. */
 :root {
@@ -21,6 +21,7 @@
   --faint: #d9e0e3;
   --accent: #1f4e5f;
   --underline: rgba(31, 78, 95, 0.45);
+  --gutter: calc(176px * var(--fs, 1));
 }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) {
@@ -134,7 +135,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .sec:not([open]) > summary::before { content: "+"; }
 .sec > summary:hover::before, .sec > summary:focus-visible::before { background: var(--accent); color: var(--bg); }
 .sec > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.secbody { display: grid; grid-template-columns: 176px 1fr; gap: 0 28px; padding-bottom: 14px; }
+.secbody { display: grid; grid-template-columns: var(--gutter) 1fr; gap: 0 28px; padding-bottom: 14px; }
 .secbody > .body { grid-column: 1 / -1; min-width: 0; padding-left: 26px; }
 .secbody > .entry, .secbody > .rowline { grid-column: 1 / -1; }
 .body p { margin: 0 0 10px; }
@@ -150,13 +151,13 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 
 /* Roles (details), collapsed by default */
 .entry > summary {
-  display: grid; grid-template-columns: 176px 1fr; gap: 0 28px;
+  display: grid; grid-template-columns: var(--gutter) 1fr; gap: 0 28px;
   align-items: baseline; cursor: pointer; list-style: none; padding: 5px 0;
 }
 .entry > summary::-webkit-details-marker { display: none; }
 .entry > summary:hover h3, .entry > summary:focus-visible h3 { color: var(--accent); }
 .entry > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
-.entry .when { font-size: calc(13px * var(--fs, 1)); color: var(--grey); font-variant-numeric: tabular-nums; padding-top: 2px; }
+.entry .when { font-size: calc(13px * var(--fs, 1)); color: var(--grey); white-space: nowrap; font-variant-numeric: tabular-nums; padding-top: 2px; }
 .entry .when::before {
   content: "+";
   display: inline-flex; align-items: center; justify-content: center;
@@ -173,12 +174,12 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
 .entry .what { min-width: 0; }
 .entry h3 { font-size: calc(15px * var(--fs, 1)); font-weight: 600; margin: 0; display: inline; }
 .entry .org { color: var(--grey); font-weight: 400; }
-.bullets { margin: 2px 0 10px calc(176px + 28px); padding-left: 18px; }
+.bullets { margin: 2px 0 10px calc(var(--gutter) + 28px); padding-left: 18px; }
 .bullets li { font-size: calc(14px * var(--fs, 1)); margin-bottom: 3px; }
 
 /* Plain rows (early career, education) */
-.rowline { display: grid; grid-template-columns: 176px 1fr; gap: 0 28px; font-size: calc(14px * var(--fs, 1)); margin-bottom: 3px; }
-.rowline .when { font-size: calc(13px * var(--fs, 1)); color: var(--grey); font-variant-numeric: tabular-nums; padding-top: 1px; }
+.rowline { display: grid; grid-template-columns: var(--gutter) 1fr; gap: 0 28px; font-size: calc(14px * var(--fs, 1)); margin-bottom: 3px; }
+.rowline .when { font-size: calc(13px * var(--fs, 1)); color: var(--grey); white-space: nowrap; font-variant-numeric: tabular-nums; padding-top: 1px; }
 .rowline .what { min-width: 0; }
 
 /* Key/value lists */
