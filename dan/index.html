@@ -602,5 +602,20 @@ footer { font-size: calc(12.5px * var(--fs, 1)); color: var(--grey); margin-top:
   label();
 })();
 </script>
+<script>
+// GoatCounter (no73-com): live site only, and only the ?t= tag is kept in the path.
+(function () {
+  if (location.hostname !== "profile.no73.com") return;
+  var t = new URLSearchParams(location.search).get("t");
+  window.goatcounter = {
+    path: function () { return location.pathname + (t ? "?t=" + encodeURIComponent(t) : ""); }
+  };
+  var s = document.createElement("script");
+  s.async = true;
+  s.src = "https://gc.zgo.at/count.js";
+  s.setAttribute("data-goatcounter", "https://no73-com.goatcounter.com/count");
+  document.body.appendChild(s);
+})();
+</script>
 </body>
 </html>
